@@ -1,130 +1,150 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
-<head>
+  <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - AQUAMOVIL</title>
+    <link rel="icon" href="/Frontend/img/Favicon.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-<body>
- 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">AQUAMOVIL</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="servicios.html">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  </head>
 
-  <div class="container my-5">
-    <h1 class="text-center mb-4">Nuestros Servicios</h1>
+  <body>
 
-    <div id="serviciosCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-4">
 
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <img class="card-img-top" src="assets/img/lavado-exterior.jpg" alt="Lavado Exterior">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Lavado Exterior</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <img class="card-img-top" src="assets/img/lavado-interior.jpg" alt="Lavado Interior">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Lavado Interior</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <img class="card-img-top" src="assets/img/pulido.jpg" alt="Pulido Básico">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Pulido Básico</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="container-fluid">
 
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <img class="card-img-top" src="assets/img/tratamiento-llantas.jpg" alt="Tratamiento de llantas">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Tratamiento de llantas</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <img class="card-img-top" src="assets/img/encerado.jpg" alt="Encerado">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Encerado</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <img class="card-img-top" src="assets/img/aspirado-interior.jpg" alt="Aspirado Interior">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Aspirado Interior</h5>
-                </div>
-              </div>
-            </div>
-          </div>
+        <a class="navbar-brand" href="#">AQUAMOVIL</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="servicios.html">Servicios</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a>
+            </li>
+
+          </ul>
+
         </div>
 
       </div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
-    </div>
+    </nav>
 
-  </div>
+    <main>
+
+      <div class="container my-5">
+
+        <h1 class="text-center mb-4 titleTopSection">Nuestros Servicios</h1>
+
+        <div id="serviciosCarousel" class="carousel slide" data-bs-ride="carousel">
+
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card">
+                    <img class="card-img-top" src="assets/img/lavado-exterior.jpg" alt="Lavado Exterior">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Lavado Exterior</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <img class="card-img-top" src="assets/img/lavado-interior.jpg" alt="Lavado Interior">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Lavado Interior</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <img class="card-img-top" src="assets/img/pulido.jpg" alt="Pulido Básico">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Pulido Básico</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card">
+                    <img class="card-img-top" src="assets/img/tratamiento-llantas.jpg" alt="Tratamiento de llantas">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Tratamiento de llantas</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <img class="card-img-top" src="assets/img/encerado.jpg" alt="Encerado">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Encerado</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <img class="card-img-top" src="assets/img/aspirado-interior.jpg" alt="Aspirado Interior">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Aspirado Interior</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#serviciosCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </div>
+
+    </main>
 
     <!-- Footer -->
-  <footer class="bg-light text-center text-lg-start mt-5">
-    <div class="text-center p-3">
-      &copy; 2025 Aquamovil. Todos los derechos reservados.
-    </div>
-  </footer>
+    <footer class="bg-light text-center text-lg-start mt-5">
 
-</body>
+      <div class="text-center p-3">
+        &copy; 2025 Aquamovil. Todos los derechos reservados.
+      </div>
+
+    </footer>
+
+  </body>
 
 </html>
