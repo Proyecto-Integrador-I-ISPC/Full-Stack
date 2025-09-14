@@ -1,8 +1,12 @@
 from servicios.conexion import Conexion
-
-def registrarse():
     
-    print('\n--- REGISTRO DE NUEVO USUARIO ---')
+def registrarse(conexion):
+    # usar conexion en vez de crear una nueva conexión dentro
+    if not conexion.conectar():
+        print("No se pudo conectar a la base de datos.")
+        return
+    else:
+        print('\n--- REGISTRO DE NUEVO USUARIO ---')
 
     intentos = 0
     max_intentos = 3
@@ -16,14 +20,14 @@ def registrarse():
         print("\nSeleccione su rol:")
         print("1. Cliente")
         print("2. Empleado")
-        print("⚠️ Nota: Para ser Administrador, debe contactar a un administrador existente.")
+        print("⚠️  Nota: Para ser Administrador, debe contactar a un administrador existente.")
         
         opcion = input("Opción: ").strip()
 
         if opcion == "1":
-            id_rol = 1   # Cliente
+            id_rol = 2  # Cliente
         elif opcion == "2":
-            id_rol = 2   # Empleado
+            id_rol = 3  # Empleado
         else:
             print("¡Error! Opción inválida. Solo puede elegir 1 o 2.")
             intentos += 1
