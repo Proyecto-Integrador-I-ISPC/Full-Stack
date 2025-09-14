@@ -34,7 +34,7 @@ class Login:
                 print("Contraseña incorrecta.")
                 return None
 
-            usuario = Usuario(id_usuario, nombre, email_db, id_rol)
+            usuario = Usuario(id_usuario, nombre, email_db, password_db, id_rol)
 
             print(f"Bienvenido, {usuario.nombre}")
             return usuario
