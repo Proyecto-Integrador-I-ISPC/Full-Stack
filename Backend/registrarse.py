@@ -2,7 +2,7 @@ from servicios.conexion import Conexion
 
 def registrarse():
     
-    print('\n--- REGISTRO DE NUEVO CLIENTE ---')
+    print('\n--- REGISTRO DE NUEVO USUARIO ---')
 
     intentos = 0
     max_intentos = 3
@@ -12,9 +12,25 @@ def registrarse():
         nombre = input("Nombre: ").strip()
         correo = input("Correo electrónico: ").strip()
         contrasenia = input("Clave (mínimo 8 caracteres): ").strip()
-        id_rol = input("Ingrese su id rol: ").strip()
 
-        if not all([nombre, correo, contrasenia,id_rol]):
+        print("\nSeleccione su rol:")
+        print("1. Cliente")
+        print("2. Empleado")
+        print("⚠️ Nota: Para ser Administrador, debe contactar a un administrador existente.")
+        
+        opcion = input("Opción: ").strip()
+
+        if opcion == "1":
+            id_rol = 1   # Cliente
+        elif opcion == "2":
+            id_rol = 2   # Empleado
+        else:
+            print("¡Error! Opción inválida. Solo puede elegir 1 o 2.")
+            intentos += 1
+            continue
+
+        # Validar campos
+        if not all([nombre, correo, contrasenia]):
             print("¡Error! No se permiten campos vacíos.")
             intentos += 1
             continue
@@ -24,7 +40,7 @@ def registrarse():
             intentos += 1
             continue
 
-        # Insertar cliente
+        # Insertar cliente/empleado
         db = Conexion()
         conn = db.conectar()
         if conn is None:
@@ -41,7 +57,7 @@ def registrarse():
             return  
 
         except Exception as err:
-            print("Error al registrar cliente: {err}")
+            print(f"Error al registrar usuario: {err}")
             intentos += 1
 
         finally:
