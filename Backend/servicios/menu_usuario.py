@@ -2,7 +2,9 @@ from servicios.conexion import Conexion
 from clases.usuario import Usuario
 
 def menu_user(usuario):
+
     while True:
+        
         print(f"\n--- Menú Usuario ({usuario.nombre}) ---")
         print("1. Ver mis datos")
         print("2. Editar mis datos")

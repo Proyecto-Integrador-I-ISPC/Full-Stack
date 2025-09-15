@@ -5,21 +5,25 @@ from servicios.menu_administrador import menu_admin
 from servicios.menu_usuario import menu_user
 
 def iniciar_sesion(conexion):
-    email = input("Correo: ").strip()
+
+    email = input("\nCorreo: ").strip()
     contrasenia = input("Contraseña: ").strip()
     login = Login(conexion)
     usuario = login.autenticar(email, contrasenia)
     return usuario
 
 def mostrar_menu_principal():
-    print("\n--- Bienvenido a Aquamovil---")
+
+    print("\n--- Bienvenido a Aquamovil ---")
     print("1. Iniciar sesión")
     print("2. Registrarse")
     print("3. Salir")
-    return input("Seleccione una opción: ").strip()
+    return input("\nSeleccione una opción: ").strip()
 
 def main():
+
     conexion = Conexion()
+    
     if not conexion.conectar():
         print("No se pudo establecer la conexión")
         return
@@ -30,7 +34,7 @@ def main():
         if opcion == "1":
             usuario = iniciar_sesion(conexion)
             if usuario:
-                if usuario.idrol == 1:  # Suponiendo 1 = Admin
+                if usuario.idrol == 1:  
                     menu_admin(usuario)
                 else:
                     menu_user(usuario)
