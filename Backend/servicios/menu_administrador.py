@@ -1,8 +1,10 @@
 from clases.usuario import Usuario
 
 def menu_admin(usuario):
+
     while True:
-        print(f"\n--- Menú Administrador ({usuario.nombre}) ---")
+
+        print(f"\n--- Menú Administrador ({usuario.nombre}) ---\n")
         print("1. Ver mis datos personales")
         print("2. Editar mis datos personales")
         print("3. Visualizar usuarios registrados")
@@ -10,7 +12,7 @@ def menu_admin(usuario):
         print("5. Eliminar un usuario")
         print("6. Cerrar sesión")
 
-        opcion = input("Seleccione una opción: ").strip()
+        opcion = input("\nSeleccione una opción: ").strip()
 
         if opcion == "1":
             usuario.ver_datos()
@@ -19,17 +21,16 @@ def menu_admin(usuario):
             usuario.editar_datos()
 
         elif opcion == "3":
-            # Lista todos los usuarios solo si es admin
-            Usuario.listar_usuarios(usuario)
+            usuario.listar_usuarios(usuario)
 
 
         elif opcion == "4":
             try:
-                user_id = int(input("Ingrese ID del usuario: ").strip())
-                nuevo_rol = int(input("Ingrese nuevo rol (1=Admin, 2=Cliente, 3=Empleado): ").strip())
-                Usuario.cambiar_rol(usuario, user_id, nuevo_rol)  # usuario = admin actual
+                user_id = int(input("\nIngrese ID del usuario: ").strip())
+                nuevo_rol = int(input("Ingrese nuevo rol (1 = Admin, 2 = Usuario Estándar): ").strip())
+                Usuario.cambiar_rol(usuario, user_id, nuevo_rol)  
             except ValueError:
-                print("❌ Debe ingresar un número válido para ID y rol.")
+                print("\n❌ Debe ingresar un número válido para ID y rol.")
 
 
         elif opcion == "5":
@@ -41,7 +42,7 @@ def menu_admin(usuario):
                 else:
                     print("Operación cancelada.")
             except ValueError:
-                print("❌ Debe ingresar un número válido para el ID.")
+                print("\n❌ Debe ingresar un número válido para el ID.")
 
         elif opcion == "6":
             print("Sesión cerrada.")
