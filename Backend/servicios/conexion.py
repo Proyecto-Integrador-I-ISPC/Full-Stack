@@ -1,12 +1,17 @@
 import mysql.connector
+from dotenv import load_dotenv
+import os
+
 
 class Conexion:
 
+    load_dotenv()
+
     def __init__(self):
-        self.host = "localhost"
-        self.user = "root"
-        self.password = "MAuri77.."
-        self.database = "aquamovilbd"
+        self.host = os.getenv("DB_HOST")
+        self.user = os.getenv("DB_USER")
+        self.password = os.getenv("DB_PASSWORD")
+        self.database = os.getenv("DB_NAME")
 
     def conectar(self):
        
