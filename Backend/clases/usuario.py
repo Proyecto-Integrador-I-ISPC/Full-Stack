@@ -80,18 +80,16 @@ class Usuario:
             return
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT id, nombre, correo, id_rol FROM usuario WHERE deleted = FALSE")
+            cursor.execute("""  
+                SELECT u.id, u.nombre, u.correo, r.nombre AS rol
+                FROM usuario u
+                JOIN rol r ON u.id_rol = r.id
+                WHERE u.deleted = FALSE
+            """)
             usuarios = cursor.fetchall()
             if len(usuarios) > 0:
                 for u in usuarios:
-                    rol = ""
-                    if u[3] == 1:
-                        rol = "Administrador"
-                    elif u[3] == 2:
-                        rol = "Usuario Estándar"
-                    else:
-                        rol = "Desconocido"
-                    print(f"ID: {u[0]} | Nombre: {u[1]} | Correo: {u[2]} | Rol: {rol}")
+                    print(f"ID: {u[0]} | Nombre: {u[1]} | Correo: {u[2]} | Rol: {u[3]}")
             else:
                 print("No hay usuarios registrados en la base de datos.")
         except Exception as err:
