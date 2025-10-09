@@ -3,6 +3,7 @@ from servicios.login import Login
 import registro
 from servicios.menu_administrador import menu_admin
 from servicios.menu_usuario import menu_user
+from clases.servicio import Servicio
 
 def iniciar_sesion(conexion):
 
@@ -18,11 +19,13 @@ def mostrar_menu_principal():
     print("1. Iniciar sesión")
     print("2. Registrarse")
     print("3. Salir")
+    print("4. Ver listado de servicios" )
     return input("\nSeleccione una opción: ").strip()
 
 def main():
 
     conexion = Conexion()
+    conn=conexion.conectar()
     
     if not conexion.conectar():
         print("No se pudo establecer la conexión")
@@ -43,6 +46,9 @@ def main():
         elif opcion == "3":
             print("¡Hasta luego!")
             break
+        elif opcion == "4":
+            servicio=Servicio(conexion=conn)
+            servicio.listar_servicios()
         else:
             print("Opción inválida.")
 
