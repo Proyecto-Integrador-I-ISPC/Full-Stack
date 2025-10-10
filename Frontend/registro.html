@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="servicios.html">Servicios</a>
@@ -41,6 +41,10 @@
                         <a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a>
                     </li>
                 </ul>
+                <div class="d-flex">
+                    <a href="registro.html" class="btn btn-outline-primary me-2">Registrarse</a>
+                    <a href="login.html" class="btn btn-primary">Iniciar sesión</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -48,10 +52,10 @@
     <main>
 
         <!-- Formulario de contacto -->
-        <div class="container mt-5">
-            <h2 class="mb-4 titleTopSection">Registro</h2>
-            <form action="/enviar-registro" method="POST" id="form-registro">
+
+            <form action="/enviar-registro" method="POST" id="form-registro" class="login-container">
                 <div class="mb-3">
+                    <center><h2 class="titleTopSection">Registro</h2></center>
                     <label for="nombre" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez"
                         required>
@@ -70,7 +74,7 @@
                 <button type="submit" class="btn btn-primary">Registrar</button>
             </form>
             <p id="errores" style="color: red;"></p>
-        </div>
+
 
     </main>
 
