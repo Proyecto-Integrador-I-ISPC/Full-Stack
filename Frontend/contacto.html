@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+              <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="servicios.html">Servicios</a>
@@ -32,20 +32,22 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="login.html">Login</a>
-            </li>
           </ul>
+          <div class="d-flex">
+                    <a href="registro.html" class="btn btn-outline-primary me-2">Registrarse</a>
+                    <a href="login.html" class="btn btn-primary">Iniciar sesión</a>
+                </div>
         </div>
       </div>
     </nav>
 
     <main>
       <!-- Formulario de contacto -->
-      <div class="container mt-5">
-        <h2 class="mb-4 titleTopSection">Contáctanos</h2>
-        <form action="https://formsubmit.co/ammaia.developers@gmail.com" method="POST">
+
+        
+        <form action="https://formsubmit.co/ammaia.developers@gmail.com" method="POST" class="login-container">
           <div class="mb-3">
+          <center><h2 class="mb-4 titleTopSection">Contáctanos</h2></center>
             <label for="nombre" class="form-label">Nombre y apellido</label>
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
           </div>
@@ -63,7 +65,7 @@
           <input type="hidden" name="_next" value="https://aquamovil.com/">
           <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
-      </div>
+
     </main>
 
     <!-- Footer -->
