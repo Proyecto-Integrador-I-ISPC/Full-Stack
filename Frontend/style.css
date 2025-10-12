@@ -1,3 +1,18 @@
+
+:root{
+  --color-principal:rgb(235, 245, 255);
+  --blanco:#e7ecef;
+  --oscuro:#274c77;
+  --gris:#6096ba;
+  --principal:#a3cef1;
+  --secundario:#8b8c89;
+
+
+
+
+  --padding:1.25rem
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -27,26 +42,6 @@ main {
   text-align: center;
 }
 
-.titleTopSection {
-  font-size: clamp(1.8rem, 5vw, 3rem); 
-  font-weight: bold;
-  background: linear-gradient(90deg, #88D1F1, #467EBC, #2E91C8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.sloganTopSection {
-  font-size: clamp(1.2rem, 4vw, 2.5rem);
-  color: gray;
-}
-
-.heroSection {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .login-container {
             background-color: #fff;
             padding: 30px;
@@ -110,3 +105,122 @@ footer {
   align-items: center;
   font-weight: 600;
 }
+
+
+
+
+
+
+
+/* CAMBIOS HECHOS POR ASTRID */
+
+
+/* Fondo celeste del footer */
+footer, 
+footer > div {
+  background-color: var(--principal) !important; /* celeste uniforme */
+  color: #333333; /* texto legible */
+}
+
+
+
+
+/* ===== Animación de títulos del navbar ===== */
+ .navbar-nav .nav-link {
+  color: #333333 !important; 
+  font-weight: 600;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active:hover {
+  transform: scale(1.15);
+  color: #3490df !important;
+} 
+
+
+/* ===== Animación del logo AQUAMOVIL ===== */
+.navbar-brand {
+  font-weight: 600; /* más espesor que antes */
+  letter-spacing: 1px; /* separa sutilmente las letras */
+  
+}
+
+
+/* Fondo celeste profesional del navbar */
+nav.navbar,
+nav.navbar .container-fluid {
+  background-color:var(--principal)!important; /* celeste suave y profesional */
+}
+
+
+
+
+
+.navbar-brand {
+  margin-left: 40px;
+}
+
+.navbar-nav {
+  margin-left: 60px;
+}
+
+
+.navbar-nav .nav-link {
+  margin-right: 30px; /* ajusta la distancia entre Inicio / Servicios / Contacto */
+}
+
+
+
+/* ------------SECCION DEL HERO--------------------- */
+
+.heroSection{
+  position:relative;
+  height: 100dvh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+
+
+.heroSection video{
+  position:absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  object-fit:cover;
+ 
+}
+
+.heroSection .overlay{
+  position:absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  background-color: rgba(0, 0, 0, 0.334);
+ }
+
+.heroSection h1{
+  font-size: clamp(1.8rem, 5vw, 3rem); 
+  font-weight: bold;
+  background: linear-gradient(90deg, #88D1F1, #467EBC, #2E91C8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px pink;
+  
+}
+
+.heroSection h2 {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  color: gray;
+  text-shadow: 1px 1px 2px rgba(3, 1, 12, 0.827);
+}
+
