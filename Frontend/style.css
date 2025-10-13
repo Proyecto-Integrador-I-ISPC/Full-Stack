@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -7,13 +8,13 @@ body {
   min-height: 100vh;
   background-color: #EEEEEE;
   font-family: 'Roboto', sans-serif;
-  display: flex;              
-  flex-direction: column;     
-  min-height: 100vh;       
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-  flex: 1;               
+  flex: 1;
 }
 
 .topSection {
@@ -28,12 +29,13 @@ main {
 }
 
 .titleTopSection {
-  font-size: clamp(1.8rem, 5vw, 3rem); 
+  font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: bold;
   background: linear-gradient(90deg, #88D1F1, #467EBC, #2E91C8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding: 20px;
 }
 
 .sloganTopSection {
@@ -48,47 +50,156 @@ main {
   align-items: center;
 }
 
-
-
 .login-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-        .login-container input {
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-        }
+.login-container input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
 
-        .login-container button {
-            padding: 10px;
-            font-size: 1rem;
-            background-color: #467EBC;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.login-container button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #467EBC;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-        .login-container button:hover {
-            background-color: #2E91C8;
-        }
+.login-container button:hover {
+  background-color: #2E91C8;
+}
 
-        .error {
-            color: red;
-            font-size: 0.9rem;
-        }
+.error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.navbar .btn-primary {
+  background-color: transparent;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+}
+
+.navbar .btn-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
+.navbar .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+
+.navbar-nav .nav-link {
+  color: #333333 !important;
+  font-weight: 600;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active:hover {
+  transform: scale(1.15);
+  color: #3490df !important;
+}
+
+:root {
+  --principal: #a3cef1;
+  --padding: 1.25rem
+}
+
+nav.navbar {
+  background-color: var(--principal) !important;
+}
+
+.navbar-brand {
+  margin-left: 40px;
+}
+
+.navbar-nav {
+  margin-left: 60px;
+}
+
+
+.navbar-nav .nav-link {
+  margin-right: 30px;
+}
+
+
+.heroSection {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.heroSection video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.heroSection .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.334);
+}
+
+.heroSection h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: bold;
+  background: linear-gradient(90deg, #88D1F1, #467EBC, #2E91C8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.heroSection h2 {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  color: white;
+}
+
+.caja-celeste {
+  border: 2px solid #1E90FF;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f0faff;
+  text-align: left;
+}
+
+
 footer {
   width: 100%;
   height: 80px;
@@ -96,4 +207,6 @@ footer {
   justify-content: center;
   align-items: center;
   font-weight: 600;
+  color: black;
+  background-color: #a3cef1;
 }
