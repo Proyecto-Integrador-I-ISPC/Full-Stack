@@ -52,12 +52,12 @@ class Usuario:
             cursor.execute(sql, valores)
             conn.commit()
 
-            # Actualizar
+
             self.nombre = nuevo_nombre
             self.correo = nuevo_correo
             self.contrasenia = nueva_contrasenia
 
-            print("✅ Datos actualizados correctamente.")
+            print("Datos actualizados correctamente.")
 
         except Exception as err:
             print(f"Error al actualizar datos: {err}")
@@ -113,7 +113,7 @@ class Usuario:
             sql = "UPDATE usuario SET id_rol = %s WHERE id = %s"
             cursor.execute(sql, (nuevo_rol, user_id))
             conn.commit()
-            print("\n✅ Rol actualizado correctamente.")
+            print("\n Rol actualizado correctamente.")
         except Exception as err:
             print(f"Error al actualizar rol: {err}")
         finally:
@@ -134,7 +134,7 @@ class Usuario:
             sql = "UPDATE usuario SET deleted = TRUE WHERE id = %s"
             cursor.execute(sql, (user_id,))
             conn.commit()
-            print(f"\n✅ Usuario con ID {user_id} eliminado correctamente.")
+            print(f"\n Usuario con ID {user_id} eliminado correctamente.")
         except Exception as err:
             print(f"Error al eliminar usuario: {err}")
         finally:
