@@ -1,4 +1,0 @@
-Diagrama de Clases: https://drive.google.com/file/d/1ddYKtSA_nJyO5zlAkif1asCUtk_yKo1T/view?usp=sharing
-Diagrama Entidad-Relacion: https://drive.google.com/file/d/1uhTKJdX6foJsVKEr3Fgz8oz3SKEPF667/view?usp=sharing
-Modelo Relacional: https://drive.google.com/file/d/1lKTYh5jzpYN2EZ1oQhkyanNTenwY96nE/view?usp=sharing
-Archivo IEEE830: https://docs.google.com/document/d/1J-nDYUNxK3hYRWdTx5y5gou-lHWX1Zhyhs79AY83jnw/edit?usp=sharing
