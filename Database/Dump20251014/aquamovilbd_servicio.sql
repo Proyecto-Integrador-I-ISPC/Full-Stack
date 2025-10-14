@@ -18,30 +18,6 @@ USE `aquamovilbd`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `rol`
---
-
-DROP TABLE IF EXISTS `rol`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rol` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rol`
---
-
-LOCK TABLES `rol` WRITE;
-/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'Administrador'),(2,'Usuario Estándar');
-/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `servicio`
 --
 
@@ -54,7 +30,7 @@ CREATE TABLE `servicio` (
   `descripcion` text,
   `precio` float DEFAULT NULL,
   PRIMARY KEY (`idservicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,37 +39,8 @@ CREATE TABLE `servicio` (
 
 LOCK TABLES `servicio` WRITE;
 /*!40000 ALTER TABLE `servicio` DISABLE KEYS */;
+INSERT INTO `servicio` VALUES (1,'Lavado exterior','lavado exterior simple',12000),(2,'Lavado interior','lavado interior profundo,',20000),(3,'Pulido básico','corrige imperfecciones en la pintura,',30000);
 /*!40000 ALTER TABLE `servicio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `correo` varchar(45) NOT NULL,
-  `contrasenia` varchar(45) NOT NULL,
-  `id_rol` int NOT NULL,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY ` FK_id_ rol_idx` (`id_rol`),
-  CONSTRAINT ` FK_id_ rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Rafael Cáceres','rafaelcaceres@gmail.com','RAfael11??',1,0);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -105,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-09 17:31:19
+-- Dump completed on 2025-10-14 20:15:17
