@@ -30,7 +30,7 @@ def menu_admin(usuario):
                 nuevo_rol = int(input("Ingrese nuevo rol (1 = Admin, 2 = Usuario Estándar): ").strip())
                 Usuario.cambiar_rol(usuario, user_id, nuevo_rol)  
             except ValueError:
-                print("\n❌ Debe ingresar un número válido para ID y rol.")
+                print("\nDebe ingresar un número válido para ID y rol.")
 
 
         elif opcion == "5":
@@ -42,7 +42,7 @@ def menu_admin(usuario):
                 else:
                     print("Operación cancelada.")
             except ValueError:
-                print("\n❌ Debe ingresar un número válido para el ID.")
+                print("\nDebe ingresar un número válido para el ID.")
 
         elif opcion == "6":
             print("Sesión cerrada.")

@@ -1,12 +1,14 @@
 # 📘 Documentación técnica: Diagramas y modelo de datos
 
-Este documento describe la estructura y relación entre las entidades `Usuario` y `Rol` a través de tres enfoques complementarios: **diagrama de clases**, **diagrama entidad-relación (ER)** y **modelo relacional**. Cada uno cumple una función específica en el diseño y documentación del sistema.
+Este documento describe la estructura y relación entre las entidades `Usuario`, `Rol` y `Servicio` mediante tres enfoques complementarios: **diagrama de clases**, **diagrama entidad-relación (ER)** y **modelo relacional**.  
+Se incluye también la tabla intermedia `usuarioxservicio`, que implementa la relación **muchos a muchos (N:N)** entre `Usuario` y `Servicio`.
 
 ---
 
 ## 🧩 Diagrama de clases (UML)
 
-El diagrama de clases representa la estructura lógica del sistema desde una perspectiva orientada a objetos. Define las clases, sus atributos, métodos y relaciones.
+El diagrama de clases representa la estructura lógica del sistema desde una perspectiva orientada a objetos.  
+Define las clases, sus atributos, métodos y relaciones.
 
 ### Clases involucradas
 
@@ -31,18 +33,33 @@ El diagrama de clases representa la estructura lógica del sistema desde una per
   - `- id: int` → Identificador único del rol
   - `- nombre: string` → Nombre del rol (ej. administrador, cliente)
 
-### Relación entre clases
+#### Clase: `Servicio`
+- **Atributos**:
+  - `- idservicio: int` → Identificador único del servicio
+  - `- nombre: string` → Nombre del servicio
+  - `- descripcion: string` → Descripción breve del servicio
+  - `- precio: float` → Precio del servicio
 
-- Un **rol** puede estar asignado a **muchos usuarios** → relación **1:N**
-- Se representa con una **línea recta** entre las clases, con multiplicidades: Usuario * ──────────────── 1 Rol
+#### Clase: `UsuarioxServicio`
+- **Atributos**:
+  - `- idusuarioxservicio: int` → Identificador único del registro
+  - `- id_usuario: int` → Clave foránea que referencia a `Usuario`
+  - `- id_servicio: int` → Clave foránea que referencia a `Servicio`
+  - `- fecha: datetime` → Fecha de contratación o asignación
+- **Rol**: Esta clase **no representa una entidad lógica del negocio**, sino una **asociación** que implementa la relación muchos a muchos entre `Usuario` y `Servicio`.
+
+### Relaciones
+
+- Un **Rol** puede estar asignado a **muchos Usuarios** → relación **1:N**
+- Un **Usuario** puede tener **muchos Servicios**, y un **Servicio** puede pertenecer a **muchos Usuarios** → relación **N:N** implementada por la clase asociativa `UsuarioxServicio`.
 
 ---
 
 ## 🗃️ Diagrama entidad-relación (ER)
 
-El diagrama ER representa las entidades del sistema y sus relaciones desde una perspectiva de base de datos. Es útil para visualizar cómo se estructuran los datos y cómo se vinculan.
+El diagrama ER representa las entidades del sistema y sus relaciones desde una perspectiva de base de datos.
 
-### Entidades
+### Entidades principales
 
 #### Entidad: `Usuario`
 - `id` (PK, INT)
@@ -55,25 +72,36 @@ El diagrama ER representa las entidades del sistema y sus relaciones desde una p
 - `id` (PK, INT)
 - `nombre` (VARCHAR)
 
-### Relación
+#### Entidad: `Servicio`
+- `idservicio` (PK, INT)
+- `nombre` (VARCHAR)
+- `descripcion` (VARCHAR)
+- `precio` (DECIMAL)
 
-- **Nombre**: "tiene"
-- **Tipo**: 1:N (uno a muchos)
-- **Dirección**: Un rol puede estar asignado a varios usuarios
+#### Entidad intermedia: `usuarioxservicio`
+- `idusuarioxservicio` (PK, INT)
+- `id_usuario` (FK, INT) → Referencia a `Usuario.id`
+- `id_servicio` (FK, INT) → Referencia a `Servicio.idservicio`
+- `fecha` (DATETIME)
+
+### Relaciones
+
+- **Usuario – Rol** → Relación **1:N**
+  - Un rol puede estar asignado a varios usuarios.
+- **Usuario – Servicio** → Relación **N:N**, implementada mediante la entidad intermedia `usuarioxservicio`.
 
 ### Simbología
 
-- Se utiliza una **línea recta** entre las entidades
-- En el extremo de `Rol`: `1`
-- En el extremo de `Usuario`: `N` o `∞`
-
-Ejemplo visual: Usuario ∞ ──────────────── 1 Rol
+- En `Rol` → `1`
+- En `Usuario` → `N`
+- En `UsuarioxServicio` → se conecta con **dos relaciones 1:N**:
+  - `Usuario 1 ─── N UsuarioxServicio N ─── 1 Servicio`
 
 ---
 
 ## 🧱 Modelo relacional
 
-El modelo relacional define cómo se implementan las entidades y relaciones en una base de datos relacional. Es la base para generar scripts SQL y estructurar tablas.
+El modelo relacional define cómo se implementan las entidades y relaciones en la base de datos.
 
 ### Tabla: `Rol`
 
@@ -93,6 +121,31 @@ CREATE TABLE Usuario (
   FOREIGN KEY (id_rol) REFERENCES Rol(id)
 );
 
-Relación
-- id_rol en la tabla Usuario actúa como clave foránea que referencia a Rol.id
-- Esto establece una relación uno a muchos: varios usuarios pueden compartir el mismo rol
+### Tabla: `Servicio`
+
+CREATE TABLE Servicio (
+  idservicio INT PRIMARY KEY,
+  nombre VARCHAR(100),
+  descripcion VARCHAR(255),
+  precio DECIMAL(10,2)
+);
+
+### Tabla: `usuarioxservicio`
+
+CREATE TABLE usuarioxservicio (
+  idusuarioxservicio INT NOT NULL AUTO_INCREMENT,
+  id_usuario INT DEFAULT NULL,
+  id_servicio INT DEFAULT NULL,
+  fecha DATETIME DEFAULT NULL,
+  PRIMARY KEY (idusuarioxservicio),
+  KEY fk_usuario_idx (id_usuario),
+  KEY fk_servicio_idx (id_servicio),
+  CONSTRAINT fk_servicio FOREIGN KEY (id_servicio) REFERENCES servicio (idservicio),
+  CONSTRAINT fk_usuario FOREIGN KEY (id_usuario) REFERENCES usuario (id)
+);
+
+Explicación
+
+1) La tabla usuarioxservicio implementa la relación N:N entre Usuario y Servicio.
+2) Cada registro representa una asociación única entre un usuario y un servicio determinado.
+3) Se pueden almacenar atributos adicionales de la relación, como fecha.
