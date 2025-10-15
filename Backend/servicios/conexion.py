@@ -2,7 +2,6 @@ import mysql.connector
 from dotenv import load_dotenv
 import os
 
-
 class Conexion:
 
     load_dotenv()
@@ -20,6 +19,7 @@ class Conexion:
         try:
             conexion = mysql.connector.connect(
                 host = self.host,
+                port = self.port,
                 user = self.user,
                 password = self.password,
                 database = self.database
